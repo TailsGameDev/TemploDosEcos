@@ -537,6 +537,16 @@ PrefabInstance:
       propertyPath: hand
       value: 
       objectReference: {fileID: 1063191541}
+    - target: {fileID: 284838768342202324, guid: d407a64c40680c049b1672bab03bfc0e,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 284838768342202324, guid: d407a64c40680c049b1672bab03bfc0e,
+        type: 3}
+      propertyPath: stepDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 284838768342202325, guid: d407a64c40680c049b1672bab03bfc0e,
         type: 3}
       propertyPath: m_LocalPosition.x
