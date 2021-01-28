@@ -6,17 +6,26 @@ public class Player : MonoBehaviour
 {
     private Transform myTransform;
     
+    // movement
     [SerializeField]
     private float speed = 0.0f;
+    private Vector2 faceDirection;
 
+    // step
     [SerializeField]
     private float stepDistance = 0.0f;
     private Vector3 lastStapPosition = Vector3.zero;
-
     [SerializeField]
     private Transform leftFoot = null;
     [SerializeField]
     private Transform rightFoot = null;
+    private int currentStep = 0;
+    [SerializeField]
+    private float longStepInterval = 4;
+    [SerializeField]
+    private float minStepRange = 2;
+    [SerializeField]
+    private float maxStepRange = 3;
 
     [SerializeField]
     private GameObject stepPrototype = null;
@@ -43,12 +52,29 @@ public class Player : MonoBehaviour
         Vector3 movementVector = GetMovementVector();
         Vector3 increment = movementVector.normalized * speed * Time.deltaTime;
         myTransform.position += increment;
-        myTransform.up = movementVector;
 
+        //face direction
+        if(movementVector.x != 0 || movementVector.y != 0){
+            faceDirection = movementVector;
+        }
+        myTransform.up = faceDirection;
+
+        // step generator
         if (Vector3.Distance(myTransform.position, lastStapPosition) > stepDistance)
         {
+            currentStep++;
             lastStapPosition = myTransform.position;
-            Instantiate(stepPrototype, myTransform.position, myTransform.rotation);
+            GameObject step = Instantiate(stepPrototype, myTransform.position, myTransform.rotation);
+
+            // envia valor do tamanho para o radar a cada N(longStepInterval) passos
+            if(currentStep == longStepInterval)
+            {
+                step.SendMessage("Values", maxStepRange);
+                currentStep = 0;
+            }
+            else{
+                step.SendMessage("Values", minStepRange);
+            }
         }
     }
 
