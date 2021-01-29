@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 1771792598951182318}
   - component: {fileID: 1894960683421719577}
   - component: {fileID: 5860988976867613695}
+  - component: {fileID: 7320140674619453488}
   - component: {fileID: 1477491095}
+  - component: {fileID: 8975753734787507907}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -105,7 +107,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 2
+  MaxDistance: 10.4
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -206,6 +208,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.737483, y: 0.96}
   m_EdgeRadius: 0
+--- !u!114 &7320140674619453488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052888993753244548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982252ee3ba3ec34bad50ced34ad889c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doors:
+  - {fileID: 1477491095}
+  - {fileID: 8975753734787507907}
 --- !u!114 &1477491095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,3 +236,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorName: fire
+  objToSpawnWhenUnlocked: {fileID: 5069198039291226273, guid: 90c0a07f62cd26f45bbb4055a2abd6c5,
+    type: 3}
+--- !u!114 &8975753734787507907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052888993753244548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269ca7323060a604ba714709ddabce7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorName: fire-torch
+  objToSpawnWhenUnlocked: {fileID: 6052888993753244548, guid: 7fa8f3abe34ad334dbbac16a8db0d276,
+    type: 3}

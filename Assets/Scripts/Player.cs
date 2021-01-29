@@ -9,16 +9,13 @@ public class Player : MonoBehaviour
     // movement
     [SerializeField]
     private float speed = 0.0f;
-    private Vector2 faceDirection;
 
     // step
     [SerializeField]
     private float stepDistance = 0.0f;
     private Vector3 lastStapPosition = Vector3.zero;
     [SerializeField]
-    private Transform leftFoot = null;
-    [SerializeField]
-    private Transform rightFoot = null;
+    private Transform foot = null;
     private int currentStep = 0;
     [SerializeField]
     private float longStepInterval = 4;
@@ -30,41 +27,25 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject stepPrototype = null;
 
-    [SerializeField]
-    private SpriteRenderer spriteRenderer = null;
-
-    [SerializeField]
-    private Transform hand = null;
-
-    private Key currentKey;
-
-    [SerializeField]
-    private AudioSource audioSource = null;
-
     void Awake()
     {
         myTransform = transform;
-        spriteRenderer.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
     {
         Vector3 movementVector = GetMovementVector();
+
+        // Set Position
         Vector3 increment = movementVector.normalized * speed * Time.deltaTime;
         myTransform.position += increment;
 
-        //face direction
-        if(movementVector.x != 0 || movementVector.y != 0){
-            faceDirection = movementVector;
-        }
-        myTransform.up = faceDirection;
-
-        // step generator
+        // Step spawner
         if (Vector3.Distance(myTransform.position, lastStapPosition) > stepDistance)
         {
             currentStep++;
             lastStapPosition = myTransform.position;
-            GameObject step = Instantiate(stepPrototype, myTransform.position, myTransform.rotation);
+            GameObject step = Instantiate(stepPrototype, foot.position, myTransform.rotation);
 
             // envia valor do tamanho para o radar a cada N(longStepInterval) passos
             if(currentStep == longStepInterval)
@@ -98,30 +79,5 @@ public class Player : MonoBehaviour
             movementVector -= Vector3.right;
         }
         return movementVector;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        {
-            Key key = collision.collider.GetComponent<Key>();
-            if (key != null)
-            {
-                currentKey = key;
-                key.Transform.position = hand.position;
-                key.Transform.parent = hand;
-                return;
-            }
-        }
-
-        Door door = collision.collider.GetComponent<Door>();
-        if (door != null && currentKey!=null && currentKey.DoorName == door.DoorName)
-        {
-            AudioSource spawned = Instantiate(audioSource, collision.contacts[0].point, Quaternion.identity);
-            spawned.PlayOneShot(currentKey.UnlockSound);
-            Destroy(door.gameObject);
-            Destroy(currentKey.gameObject);
-            currentKey = null;
-            return;
-        }
     }
 }

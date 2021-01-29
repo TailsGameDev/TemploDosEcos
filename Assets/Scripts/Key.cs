@@ -7,17 +7,16 @@ public class Key : MonoBehaviour
     [SerializeField]
     private string doorName = null;
 
-    [SerializeField]
-    private AudioClip unlockSound = null;
-
     private Transform myTransform;
+    private BoxCollider2D myCollider;
 
     public Transform Transform { get => myTransform; }
     public string DoorName { get => doorName; }
-    public AudioClip UnlockSound { get => unlockSound; }
+    public BoxCollider2D Collider { get => myCollider; }
 
     void Awake()
     {
         myTransform = transform;
+        myCollider = GetComponent<BoxCollider2D>();
     }
 }
