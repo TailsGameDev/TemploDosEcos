@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6229980020754697858}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,11 +54,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  stepDistance: 1
+  stepDistance: 2
   foot: {fileID: 6869758936298981938}
-  longStepInterval: 6
-  minStepRange: 2
-  maxStepRange: 4
+  longStepInterval: 3
+  minStepRange: 1
+  maxStepRange: 3
   stepPrototype: {fileID: 2690400090387489949, guid: 3b41fa3dbea8bbd4fb69e7332b1f3461,
     type: 3}
 --- !u!114 &4214431239847460566
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radarObject: {fileID: 1723187290014931956, guid: 81adca9869a8b6249875f6fe4bad9fd2,
     type: 3}
-  radarRange: 2
+  radarRange: 3
   radarSound: 0
 --- !u!50 &416532822
 Rigidbody2D:
@@ -127,7 +127,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Radius: 0.46
 --- !u!81 &9016490880356400632
 AudioListener:
   m_ObjectHideFlags: 0
@@ -143,12 +143,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284838768342202326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LightType: 0
+  m_LightType: 3
   m_BlendStyleIndex: 1
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}

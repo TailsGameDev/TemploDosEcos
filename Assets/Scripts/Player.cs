@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         myTransform = transform;
+        lastStapPosition = myTransform.position;
     }
 
     private void FixedUpdate()

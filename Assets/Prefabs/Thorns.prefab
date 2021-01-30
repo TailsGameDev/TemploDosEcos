@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6063387288058383927}
   - component: {fileID: 5542144349325957376}
   - component: {fileID: -3360967034448430521}
+  - component: {fileID: 8965100293325526354}
   m_Layer: 0
   m_Name: Thorns
   m_TagString: Untagged
@@ -108,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96, y: 0.96}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &5542144349325957376
 MonoBehaviour:
@@ -140,5 +141,22 @@ MonoBehaviour:
   audioSource: {fileID: 1011373707560079604, guid: 15f63377e5f123a4f865bf95e43d4368,
     type: 3}
   audioClip: {fileID: 8300000, guid: 8953e6745e023db48bbbb76d3451c61b, type: 3}
-  volume: 1
+  volume: 0.753
   isTrigger: 0
+--- !u!114 &8965100293325526354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857321543703589548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355d3897ff7ea5f4882d50c2c21307c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1011373707560079604, guid: 15f63377e5f123a4f865bf95e43d4368,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 8953e6745e023db48bbbb76d3451c61b, type: 3}
+  volume: 0.766
+  isTrigger: 1

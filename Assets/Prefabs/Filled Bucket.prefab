@@ -63,7 +63,7 @@ MonoBehaviour:
   audioSource: {fileID: 1011373707560079604, guid: 15f63377e5f123a4f865bf95e43d4368,
     type: 3}
   audioClip: {fileID: 8300000, guid: c32990c98e4617a48b5d7efc92305c14, type: 3}
-  volume: 1
+  volume: 0.06
   isTrigger: 1
 --- !u!212 &1229632968058946446
 SpriteRenderer:

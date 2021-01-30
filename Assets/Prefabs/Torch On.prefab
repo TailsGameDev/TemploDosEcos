@@ -81,8 +81,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1417403384906358962}
-  - component: {fileID: 3118902209096726363}
   - component: {fileID: 6100989734251475133}
+  - component: {fileID: 3433271739488500019}
   - component: {fileID: 3006129376377211677}
   - component: {fileID: 1487204154885113895}
   - component: {fileID: 2390827452672658085}
@@ -108,19 +108,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3118902209096726363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4149995504505576710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e942724a0b678b479b12bab5603077f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorName: torch-on
 --- !u!114 &6100989734251475133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +121,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newScale: {x: 1, y: 1, z: 1}
+--- !u!114 &3433271739488500019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149995504505576710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bd8ad5d98784647ad2579d228f40cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorName: torch-on
 --- !u!212 &3006129376377211677
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_Sprite: {fileID: 21300000, guid: 9b75d8f2434a15a45820247cf2d5af7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -20,19 +20,22 @@ public class PlayerHand : MonoBehaviour
         doorInRange = new List<Door>();
     }
 
+    public void PickUpKey(Key keyBeingHeld)
+    {
+        this.keyBeingHeld = keyBeingHeld;
+        keyBeingHeld.Transform.position = handPosition.position;
+        keyBeingHeld.Transform.parent = handPosition;
+        keyBeingHeld.Collider.enabled = false;
+
+        keysInRangeToPickUp.Remove(keyBeingHeld);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)){
             if (keyBeingHeld == null && keysInRangeToPickUp.Count > 0)
             {
-                // Pick up key
-
-                keyBeingHeld = keysInRangeToPickUp[0];
-                keyBeingHeld.Transform.position = handPosition.position;
-                keyBeingHeld.Transform.parent = handPosition;
-                keyBeingHeld.Collider.enabled = false;
-
-                keysInRangeToPickUp.Remove(keyBeingHeld);
+                PickUpKey(keysInRangeToPickUp[0]);
             }
             else if (keyBeingHeld!=null && doorInRange.Count==0)
             {
@@ -55,7 +58,8 @@ public class PlayerHand : MonoBehaviour
 
                 if (succeed)
                 {
-                    Destroy(keyBeingHeld.gameObject);
+                    keyBeingHeld.transform.parent = null;
+                    keyBeingHeld.DestroyItselfIfNeeded();
                     keyBeingHeld = null;
                 }
             }

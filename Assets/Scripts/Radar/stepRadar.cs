@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class stepRadar : MonoBehaviour
 {
@@ -13,9 +14,13 @@ public class stepRadar : MonoBehaviour
     private Vector3 stepDirection = Vector3.zero;
     private bool stepEven = false;
 
+    [SerializeField]
+    private Light2D light2D = null;
+
     void Values(float radarRange)
     {
        radarScale = radarRange;
+        light2D.pointLightOuterRadius = radarRange;
     }
 
     void Even(bool even)

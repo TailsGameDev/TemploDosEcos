@@ -14,9 +14,14 @@ public class Key : MonoBehaviour
     public string DoorName { get => doorName; }
     public BoxCollider2D Collider { get => myCollider; }
 
-    void Awake()
+    private void Awake()
     {
         myTransform = transform;
         myCollider = GetComponent<BoxCollider2D>();
+    }
+
+    public void DestroyItselfIfNeeded()
+    {
+        Destroy(gameObject);
     }
 }
