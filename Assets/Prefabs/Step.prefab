@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2690400090387489949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.04065022, y: 0.17421603, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2690400090387489949}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -92,10 +92,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2690400090387489949}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 37e0aae6325e06143ade2b741e9b6799, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1609623754e31034f84e010c56793a70, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -208,6 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radarObject: {fileID: 1723187290014931956, guid: 81adca9869a8b6249875f6fe4bad9fd2,
     type: 3}
+  leftFootSprite: {fileID: 21300000, guid: 0d801026fd3840a40b94c1fe947bfe7d, type: 3}
+  rightFootSprite: {fileID: 21300000, guid: 519393e254e066842bbf815afa135d20, type: 3}
 --- !u!114 &1009917845509356024
 MonoBehaviour:
   m_ObjectHideFlags: 0

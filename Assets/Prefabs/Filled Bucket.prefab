@@ -63,6 +63,8 @@ MonoBehaviour:
   audioSource: {fileID: 1011373707560079604, guid: 15f63377e5f123a4f865bf95e43d4368,
     type: 3}
   audioClip: {fileID: 8300000, guid: c32990c98e4617a48b5d7efc92305c14, type: 3}
+  volume: 1
+  isTrigger: 1
 --- !u!212 &1229632968058946446
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -123,7 +125,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.01650098, y: -0.03720291}
@@ -137,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62788945, y: 0.6533029}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1971160773566215108
 MonoBehaviour:

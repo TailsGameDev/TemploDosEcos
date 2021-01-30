@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8561000540226638917}
   - component: {fileID: 6063387288058383927}
   - component: {fileID: 5542144349325957376}
+  - component: {fileID: -3360967034448430521}
   m_Layer: 0
   m_Name: Thorns
   m_TagString: Untagged
@@ -124,3 +125,20 @@ MonoBehaviour:
   doorName: torch-on
   objToSpawnWhenUnlocked: {fileID: 6052888993753244548, guid: 7fa8f3abe34ad334dbbac16a8db0d276,
     type: 3}
+--- !u!114 &-3360967034448430521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857321543703589548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355d3897ff7ea5f4882d50c2c21307c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1011373707560079604, guid: 15f63377e5f123a4f865bf95e43d4368,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 8953e6745e023db48bbbb76d3451c61b, type: 3}
+  volume: 1
+  isTrigger: 0

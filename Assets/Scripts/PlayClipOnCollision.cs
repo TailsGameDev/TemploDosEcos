@@ -14,9 +14,24 @@ public class PlayClipOnCollision : MonoBehaviour
     [Range(0.0f,1.0f)]
     private float volume = 1.0f;
 
+    [SerializeField]
+    private bool isTrigger = false;
+
+    private void PlayClip(){
+        AudioSource spawned = Instantiate(audioSource, transform.position, Quaternion.identity);
+        spawned.PlayOneShot(audioClip, volume);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        AudioSource spawned = Instantiate(audioSource, collision.contacts[0].point, Quaternion.identity);
-        spawned.PlayOneShot(audioClip, volume);
+        if(!isTrigger){
+           PlayClip();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D  collision)
+    {
+        if(isTrigger){
+           PlayClip();
+        }       
     }
 }

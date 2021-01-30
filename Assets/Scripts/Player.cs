@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private float minStepRange = 2;
     [SerializeField]
     private float maxStepRange = 3;
+    private bool stepEven = false;
 
     [SerializeField]
     private GameObject stepPrototype = null;
@@ -46,6 +47,13 @@ public class Player : MonoBehaviour
             currentStep++;
             lastStapPosition = myTransform.position;
             GameObject step = Instantiate(stepPrototype, foot.position, myTransform.rotation);
+            
+            // even step
+            stepEven = currentStep % 2 == 0;
+            step.SendMessage("Even", stepEven);
+
+            // step facing direction
+            step.SendMessage("Direction", movementVector.normalized);
 
             // envia valor do tamanho para o radar a cada N(longStepInterval) passos
             if(currentStep == longStepInterval)
