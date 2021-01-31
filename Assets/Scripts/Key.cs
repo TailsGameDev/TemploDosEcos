@@ -7,6 +7,9 @@ public class Key : MonoBehaviour
     [SerializeField]
     private string doorName = null;
 
+    [SerializeField]
+    private Collider2D[] allColliders = null;
+
     private Transform myTransform;
     private BoxCollider2D myCollider;
 
@@ -23,5 +26,13 @@ public class Key : MonoBehaviour
     public void DestroyItselfIfNeeded()
     {
         Destroy(gameObject);
+    }
+
+    public void SetAllCollidersEnable(bool shouldEnable)
+    {
+        for (int c = 0; c < allColliders.Length; c++)
+        {
+            allColliders[c].enabled = false;
+        }
     }
 }

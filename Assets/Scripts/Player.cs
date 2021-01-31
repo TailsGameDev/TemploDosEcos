@@ -6,11 +6,11 @@ public class Player : MonoBehaviour
 {
     private Transform myTransform;
     
-    // movement
+    // Movement
     [SerializeField]
     private float speed = 0.0f;
 
-    // step
+    // Step
     [SerializeField]
     private float stepDistance = 0.0f;
     private Vector3 lastStapPosition = Vector3.zero;
@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject stepPrototype = null;
 
+    [SerializeField]
+    private Animator animator = null;
+
     void Awake()
     {
         myTransform = transform;
@@ -41,6 +44,24 @@ public class Player : MonoBehaviour
         // Set Position
         Vector3 increment = movementVector.normalized * speed * Time.deltaTime;
         myTransform.position += increment;
+
+        bool hasInput = Vector3.SqrMagnitude(increment) > 0.001f;
+
+        // Set Rotation
+        if (hasInput)
+        {
+            transform.up = increment;
+        }
+
+        // Manage Animation
+        if (hasInput)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
 
         // Step spawner
         if (Vector3.Distance(myTransform.position, lastStapPosition) > stepDistance)

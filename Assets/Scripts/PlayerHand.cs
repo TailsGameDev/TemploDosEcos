@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
@@ -9,6 +8,13 @@ public class PlayerHand : MonoBehaviour
 
     [SerializeField]
     private Transform dropPosition = null;
+
+    [SerializeField]
+    private AudioSource audioSource = null;
+    [SerializeField]
+    private AudioClip pickUpItemSFX = null;
+    [SerializeField]
+    private AudioClip dropItemSFX = null;
 
     private Key keyBeingHeld;
     private List<Key> keysInRangeToPickUp;
@@ -24,10 +30,13 @@ public class PlayerHand : MonoBehaviour
     {
         this.keyBeingHeld = keyBeingHeld;
         keyBeingHeld.Transform.position = handPosition.position;
+        keyBeingHeld.Transform.rotation = transform.rotation;
         keyBeingHeld.Transform.parent = handPosition;
-        keyBeingHeld.Collider.enabled = false;
+        keyBeingHeld.SetAllCollidersEnable(false);
 
         keysInRangeToPickUp.Remove(keyBeingHeld);
+
+        audioSource.PlayOneShot(pickUpItemSFX);
     }
 
     private void Update()
@@ -42,9 +51,12 @@ public class PlayerHand : MonoBehaviour
                 // Drop Key
 
                 keyBeingHeld.Transform.position = dropPosition.position;
+                keyBeingHeld.Transform.rotation = Quaternion.identity;
                 keyBeingHeld.Transform.parent = null;
-                keyBeingHeld.Collider.enabled = true;
+                keyBeingHeld.SetAllCollidersEnable(true);
                 keyBeingHeld = null;
+
+                audioSource.PlayOneShot(dropItemSFX);
             }
             else if (keyBeingHeld != null && doorInRange.Count>0)
             {

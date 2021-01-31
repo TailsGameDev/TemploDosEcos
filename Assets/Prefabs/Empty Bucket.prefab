@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5896136245443417257}
   - component: {fileID: 3432974489839878632}
   - component: {fileID: -626986538598875888}
+  - component: {fileID: 1866773410612686945}
+  - component: {fileID: 6447858489648883675}
   m_Layer: 0
   m_Name: Empty Bucket
   m_TagString: Untagged
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 00b2de381f30d8448bd1b304c55b12f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5100e30de5b1ba743bf727eff2545ee0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,21 +97,21 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.010997534}
+  m_Offset: {x: 0, y: -0.13993141}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.96}
+    oldSize: {x: 1.26, y: 1.26}
     newSize: {x: 0.96, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 0.6, y: 0.8578678}
   m_EdgeRadius: 0
 --- !u!114 &5896136245443417257
 MonoBehaviour:
@@ -124,6 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorName: well-with-rope
+  allColliders:
+  - {fileID: 6447858489648883675}
+  - {fileID: 5896136245443417262}
 --- !u!114 &3432974489839878632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +159,31 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 64d88b948441eab43a4c81e50700b664, type: 3}
   volume: 0.06
   isTrigger: 1
+--- !u!114 &1866773410612686945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896136245443417259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a1a6c7256d3d1489d8dc0d594cf0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &6447858489648883675
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896136245443417259}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.96
