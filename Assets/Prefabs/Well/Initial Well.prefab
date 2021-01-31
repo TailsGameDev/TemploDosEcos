@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4608956007673917058}
   - component: {fileID: 4608956007673917059}
   - component: {fileID: 8695787710350912169}
-  - component: {fileID: 1112236547}
+  - component: {fileID: 8217972769640631449}
   m_Layer: 0
   m_Name: Initial Well
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4608956007673917057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.35, y: -5.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
   doorName: initial-well
   objToSpawnWhenUnlocked: {fileID: 2124261762848899377, guid: e0acdc1b8e6c93f4292e433e6765795f,
     type: 3}
---- !u!61 &1112236547
-BoxCollider2D:
+--- !u!70 &8217972769640631449
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,16 +111,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.26, y: 1.26}
-    newSize: {x: 3.44, y: 2.24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1333895, y: 1.1876158}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.0048191394, y: -0.1325549}
+  m_Size: {x: 1.0768749, y: 0.8213718}
+  m_Direction: 1

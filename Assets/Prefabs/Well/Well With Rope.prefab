@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2458642464465261408}
   - component: {fileID: 5670792078478571511}
   - component: {fileID: 5241687501805848069}
-  - component: {fileID: 2392571098505182399}
+  - component: {fileID: 7557780719266212170}
   m_Layer: 0
   m_Name: Well With Rope
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2124261762848899377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
   doorName: well-with-rope
   objToSpawnWhenUnlocked: {fileID: 824521758636049236, guid: ea9dea38c06a4694badc73065be5dcc8,
     type: 3}
---- !u!61 &2392571098505182399
-BoxCollider2D:
+--- !u!70 &7557780719266212170
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,16 +111,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000059604645, y: -0.5216541}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.26, y: 1.26}
-    newSize: {x: 3.44, y: 2.24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1598128, y: 1.1966918}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0049559046, y: -0.1338367}
+  m_Size: {x: 1.0518606, y: 0.78414154}
+  m_Direction: 1

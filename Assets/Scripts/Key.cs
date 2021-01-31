@@ -32,7 +32,7 @@ public class Key : MonoBehaviour
     {
         for (int c = 0; c < allColliders.Length; c++)
         {
-            allColliders[c].enabled = false;
+            allColliders[c].enabled = shouldEnable;
         }
     }
 }
