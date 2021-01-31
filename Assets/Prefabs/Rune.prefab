@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1808027124962244769}
   - component: {fileID: 1241570899463969281}
   - component: {fileID: 7081757184795563010}
+  - component: {fileID: 6470069957054638180}
+  - component: {fileID: 4113077565237640962}
   m_Layer: 0
   m_Name: Rune
   m_TagString: Untagged
@@ -97,6 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorName: 
+  allColliders:
+  - {fileID: 1241570899463969281}
+  - {fileID: 4113077565237640962}
 --- !u!61 &1241570899463969281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,7 +115,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0036258698, y: 0}
+  m_Offset: {x: 0.006035328, y: 0.007229805}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -121,7 +126,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7134495, y: 0.96}
+  m_Size: {x: 1.3929415, y: 1.398634}
   m_EdgeRadius: 0
 --- !u!114 &7081757184795563010
 MonoBehaviour:
@@ -164,3 +169,36 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &6470069957054638180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749826472295273920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355d3897ff7ea5f4882d50c2c21307c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1011373707560079604, guid: 15f63377e5f123a4f865bf95e43d4368,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: ed5561d0c6fa7cc43a47305b3f38d0eb, type: 3}
+  volume: 1
+  isTrigger: 1
+--- !u!58 &4113077565237640962
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749826472295273920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012047768, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5022936
