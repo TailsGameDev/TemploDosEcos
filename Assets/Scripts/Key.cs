@@ -13,7 +13,16 @@ public class Key : MonoBehaviour
     private Transform myTransform;
     private BoxCollider2D myCollider;
 
-    public Transform Transform { get => myTransform; }
+    public Transform Transform { 
+        get  
+        { 
+            if (myTransform == null)
+            {
+                myTransform = transform; 
+            }
+            return myTransform; 
+        }  
+    }
     public string DoorName { get => doorName; }
     public BoxCollider2D Collider { get => myCollider; }
 

@@ -184,7 +184,7 @@ MonoBehaviour:
   audioSource: {fileID: 1011373707560079604, guid: 15f63377e5f123a4f865bf95e43d4368,
     type: 3}
   audioClip: {fileID: 8300000, guid: ed5561d0c6fa7cc43a47305b3f38d0eb, type: 3}
-  volume: 1
+  volume: 0.242
   isTrigger: 1
 --- !u!58 &4113077565237640962
 CircleCollider2D:

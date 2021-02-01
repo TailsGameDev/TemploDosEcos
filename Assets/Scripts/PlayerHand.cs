@@ -18,35 +18,48 @@ public class PlayerHand : MonoBehaviour
 
     private Key keyBeingHeld;
     private List<Key> keysInRangeToPickUp;
-    private List<Door> doorInRange;
+    private List<Door> doorsInRange;
 
     private void Awake()
     {
         keysInRangeToPickUp = new List<Key>();
-        doorInRange = new List<Door>();
+        doorsInRange = new List<Door>();
     }
 
     public void PickUpKey(Key keyBeingHeld)
     {
-        this.keyBeingHeld = keyBeingHeld;
-        keyBeingHeld.Transform.position = handPosition.position;
-        keyBeingHeld.Transform.rotation = transform.rotation;
-        keyBeingHeld.Transform.parent = handPosition;
-        keyBeingHeld.SetAllCollidersEnable(false);
+        if (keyBeingHeld != null)
+        {
+            this.keyBeingHeld = keyBeingHeld;
+            keyBeingHeld.Transform.position = handPosition.position;
+            keyBeingHeld.Transform.rotation = transform.rotation;
+            keyBeingHeld.Transform.parent = handPosition;
+            keyBeingHeld.SetAllCollidersEnable(false);
 
-        keysInRangeToPickUp.Remove(keyBeingHeld);
+            keysInRangeToPickUp.Remove(keyBeingHeld);
 
-        audioSource.PlayOneShot(pickUpItemSFX);
+            audioSource.PlayOneShot(pickUpItemSFX);
+        }
+        else
+        {
+            Debug.LogError("keyBeingHeld param is null");
+        }
     }
 
     private void Update()
     {
+        // Trying to fix bug quick
+        if (doorsInRange.Count > 0 && (doorsInRange[0]==null||Vector3.SqrMagnitude(doorsInRange[0].transform.position - transform.position) > 15.0f))
+        {
+            doorsInRange.Clear();
+        }
+
         if (Input.GetKeyDown(KeyCode.Space)){
             if (keyBeingHeld == null && keysInRangeToPickUp.Count > 0)
             {
                 PickUpKey(keysInRangeToPickUp[0]);
             }
-            else if (keyBeingHeld!=null && doorInRange.Count==0)
+            else if (keyBeingHeld!=null && doorsInRange.Count==0)
             {
                 // Drop Key
 
@@ -58,14 +71,14 @@ public class PlayerHand : MonoBehaviour
 
                 audioSource.PlayOneShot(dropItemSFX);
             }
-            else if (keyBeingHeld != null && doorInRange.Count>0)
+            else if (keyBeingHeld != null && doorsInRange.Count>0)
             {
                 // Try to use key
 
                 bool succeed = false;
-                for (int d = 0; d < doorInRange.Count; d++)
+                for (int d = 0; d < doorsInRange.Count; d++)
                 {
-                    succeed |= doorInRange[d].TryKey(keyBeingHeld);
+                    succeed |= doorsInRange[d].TryKey(keyBeingHeld);
                 }
 
                 if (succeed)
@@ -102,7 +115,7 @@ public class PlayerHand : MonoBehaviour
             {
                 for (int d = 0; d < doorCollection.Doors.Length; d++)
                 {
-                    doorInRange.Add(doorCollection.Doors[d]);
+                    doorsInRange.Add(doorCollection.Doors[d]);
                 }
                 return;
             }
@@ -112,7 +125,7 @@ public class PlayerHand : MonoBehaviour
         Door door = col.GetComponent<Door>();
         if (door != null)
         {
-            doorInRange.Insert(0, door);
+            doorsInRange.Insert(0, door);
         }
     }
 
@@ -137,10 +150,14 @@ public class PlayerHand : MonoBehaviour
             DoorCollection doorCollection = col.GetComponent<DoorCollection>();
             if (doorCollection != null)
             {
+                // The better would be to remove just the ones that belong to "col", but it was bugged that way.
+                doorsInRange.Clear();
+                /*
                 for (int d = 0; d < doorCollection.Doors.Length; d++)
                 {
-                    doorInRange.Remove(doorCollection.Doors[d]);
+                    doorsInRange.Remove(doorCollection.Doors[d]);
                 }
+                */
                 return;
             }
         }
@@ -150,9 +167,14 @@ public class PlayerHand : MonoBehaviour
             Door door = col.GetComponent<Door>();
             if (door != null)
             {
-                doorInRange.Remove(door);
+                doorsInRange.Remove(door);
                 return;
             }
         }
+    }
+
+    public void QuitAllDoors()
+    {
+        doorsInRange.Clear();
     }
 }

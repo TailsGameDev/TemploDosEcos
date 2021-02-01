@@ -31,10 +31,22 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Animator animator = null;
 
+    public delegate void ChangeSpeed(float newSpeed);
+    public static ChangeSpeed changeSpeed;
+
+    public static Player instance;
+
     void Awake()
     {
         myTransform = transform;
         lastStapPosition = myTransform.position;
+
+        instance = this;
+        changeSpeed = SpeedUp;
+    }
+    private void SpeedUp(float newSpeed)
+    {
+        speed = newSpeed;
     }
 
     private void FixedUpdate()
